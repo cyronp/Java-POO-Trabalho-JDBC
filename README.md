@@ -2,5 +2,3 @@
 ---
 ### Estruturação do Projeto
 
-
-[*]
