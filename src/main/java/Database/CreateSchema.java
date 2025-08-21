@@ -1,9 +1,11 @@
+package Database;
+
 import java.sql.*;
 import java.sql.Connection;
 
 public class CreateSchema {
     public static void main(String[] args){
-        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:mobiliaria.db");
+        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:imobiliaria.db");
              Statement statement = connection.createStatement();){
             statement.executeUpdate("CREATE TABLE clientes (\n" +
                     "                          id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
