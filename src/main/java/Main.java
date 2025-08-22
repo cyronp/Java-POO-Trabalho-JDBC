@@ -16,7 +16,7 @@ public class Main {
         ImovelDAO imovelDAO = new ImovelDAO();
         ContratoDAO contratoDAO = new ContratoDAO();
 
-        int opcao;
+        String opcao;
 
         do {
             System.out.println("\n===== SISTEMA IMOBILIÁRIA =====");
@@ -29,14 +29,14 @@ public class Main {
             System.out.println("7 - Listar Contratos");
             System.out.println("8 - Listar Contratos Ativos");
             System.out.println("9 - Relatório: Clientes com mais contratos");
-            System.out.println("R - Relatório: Contratos vencendo em 30 dias");
+            System.out.println("10 - Relatório: Contratos vencendo em 30 dias");
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
-            opcao = sc.nextInt();
+            opcao = sc.next();
             sc.nextLine();
 
             switch (opcao) {
-                case 1:
+                case "1":
                     Cliente c = new Cliente();
                     System.out.print("Nome: ");
                     c.setNome(sc.nextLine());
@@ -50,13 +50,13 @@ public class Main {
                     System.out.println("Cliente cadastrado com sucesso!");
                     break;
 
-                case 2:
+                case "2":
                     clienteDAO.listarTodos().forEach(cli ->
                             System.out.println(cli.getId() + " - " + cli.getNome())
                     );
                     break;
 
-                case 3:
+                case "3":
                     Imovel i = new Imovel();
                     System.out.print("Endereço: ");
                     i.setEndereco(sc.nextLine());
@@ -76,18 +76,18 @@ public class Main {
                     System.out.println("Imóvel cadastrado com sucesso!");
                     break;
 
-                case 4:
+                case "4":
                     imovelDAO.listarTodos().forEach(im ->
                             System.out.println(im.getId() + " - " + im.getEndereco() + " (" + im.getTipo()+ ") R$" + im.getValor_aluguel())
                     );
 
-                case 5:
+                case "5":
                     imovelDAO.listarDisponiveis().forEach(im ->
                             System.out.println(im.getId() + " - " + im.getEndereco() + " (" + im.getTipo() + ") R$" + im.getValor_aluguel())
                     );
                     break;
 
-                case 6:
+                case "6":
                     Contrato ctr = new Contrato();
                     System.out.print("ID Cliente: ");
                     ctr.setId_cliente(sc.nextInt());
@@ -105,35 +105,35 @@ public class Main {
                     System.out.println("Contrato cadastrado com sucesso!");
                     break;
 
-                case 7:
+                case "7":
                     contratoDAO.listarTodos().forEach(ct ->
                             System.out.println("Contrato " + ct.getId() + " - Cliente " + ct.getId_cliente() + " - Imóvel " + ct.getId_imovel())
                     );
 
-                case 8:
+                case "8":
                     contratoDAO.listarAtivos().forEach(ct ->
                             System.out.println("Contrato " + ct.getId() + " - Cliente " + ct.getId_cliente() + " - Imóvel " + ct.getId_imovel())
                     );
                     break;
 
-                case 9:
+                case "9":
                     contratoDAO.clientesComMaisContratos();
                     break;
 
-                case 10:
+                case "10":
                     contratoDAO.listarExpirando30Dias().forEach(ct ->
                             System.out.println("Contrato " + ct.getId() + " expira em " + ct.getData_fim())
                     );
                     break;
 
-                case 0:
+                case "0":
                     System.out.println("Encerrando sistema...");
                     break;
 
                 default:
                     System.out.println("Opção inválida!");
             }
-        } while (opcao != 0);
+        } while (!opcao.equals("0"));
 
         sc.close();
     }
