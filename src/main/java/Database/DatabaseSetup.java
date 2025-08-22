@@ -5,6 +5,9 @@ import java.sql.Connection;
 import java.sql.Statement;
 
 public class DatabaseSetup {
+    public static void main(String[] args) {
+        initDatabase();
+    }
     public static void initDatabase() {
         try (Connection conn = Factory.getConnection();
              Statement stmt = conn.createStatement()) {
@@ -37,6 +40,7 @@ public class DatabaseSetup {
                     "FOREIGN KEY (id_cliente) REFERENCES clientes(id)," +
                     "FOREIGN KEY (id_imovel) REFERENCES imoveis(id))");
 
+            System.out.println("Banco criado com sucesso!");
         } catch (Exception e) {
             e.printStackTrace();
         }
