@@ -28,7 +28,7 @@ public class Cliente {
     }
 
     public void setCpf(String cpf) {
-        this.cpf = this.cpf;
+        this.cpf = cpf;
     }
 
     public String getTelefone() {
@@ -36,7 +36,7 @@ public class Cliente {
     }
 
     public void setTelefone(String telefone) {
-        this.telefone = this.telefone;
+        this.telefone = telefone;
     }
 
     public String getEmail() {
@@ -44,6 +44,6 @@ public class Cliente {
     }
 
     public void setEmail(String email) {
-        this.email = this.email;
+        this.email = email;
     }
 }
