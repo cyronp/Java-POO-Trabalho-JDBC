@@ -23,11 +23,13 @@ public class Main {
             System.out.println("1 - Cadastrar Cliente");
             System.out.println("2 - Listar Clientes");
             System.out.println("3 - Cadastrar Imóvel");
-            System.out.println("4 - Listar Imóveis Disponíveis");
-            System.out.println("5 - Cadastrar Contrato");
-            System.out.println("6 - Listar Contratos Ativos");
-            System.out.println("7 - Relatório: Clientes com mais contratos");
-            System.out.println("8 - Relatório: Contratos vencendo em 30 dias");
+            System.out.println("4 - Listar Imóveis");
+            System.out.println("5 - Listar Imóveis Disponíveis");
+            System.out.println("6 - Cadastrar Contrato");
+            System.out.println("7 - Listar Contratos");
+            System.out.println("8 - Listar Contratos Ativos");
+            System.out.println("9 - Relatório: Clientes com mais contratos");
+            System.out.println("R - Relatório: Contratos vencendo em 30 dias");
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
             opcao = sc.nextInt();
@@ -75,12 +77,17 @@ public class Main {
                     break;
 
                 case 4:
+                    imovelDAO.listarTodos().forEach(im ->
+                            System.out.println(im.getId() + " - " + im.getEndereco() + " (" + im.getTipo()+ ") R$" + im.getValor_aluguel())
+                    );
+
+                case 5:
                     imovelDAO.listarDisponiveis().forEach(im ->
                             System.out.println(im.getId() + " - " + im.getEndereco() + " (" + im.getTipo() + ") R$" + im.getValor_aluguel())
                     );
                     break;
 
-                case 5:
+                case 6:
                     Contrato ctr = new Contrato();
                     System.out.print("ID Cliente: ");
                     ctr.setId_cliente(sc.nextInt());
@@ -98,17 +105,22 @@ public class Main {
                     System.out.println("Contrato cadastrado com sucesso!");
                     break;
 
-                case 6:
+                case 7:
+                    contratoDAO.listarTodos().forEach(ct ->
+                            System.out.println("Contrato " + ct.getId() + " - Cliente " + ct.getId_cliente() + " - Imóvel " + ct.getId_imovel())
+                    );
+
+                case 8:
                     contratoDAO.listarAtivos().forEach(ct ->
                             System.out.println("Contrato " + ct.getId() + " - Cliente " + ct.getId_cliente() + " - Imóvel " + ct.getId_imovel())
                     );
                     break;
 
-                case 7:
+                case 9:
                     contratoDAO.clientesComMaisContratos();
                     break;
 
-                case 8:
+                case 10:
                     contratoDAO.listarExpirando30Dias().forEach(ct ->
                             System.out.println("Contrato " + ct.getId() + " expira em " + ct.getData_fim())
                     );

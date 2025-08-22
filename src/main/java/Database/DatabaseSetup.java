@@ -34,8 +34,8 @@ public class DatabaseSetup {
                     "data_inicio DATE NOT NULL," +
                     "data_fim DATE NOT NULL," +
                     "ativo BOOLEAN DEFAULT 1," +
-                    "FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)," +
-                    "FOREIGN KEY (id_imovel) REFERENCES imoveis(id_imovel))");
+                    "FOREIGN KEY (id_cliente) REFERENCES clientes(id)," +
+                    "FOREIGN KEY (id_imovel) REFERENCES imoveis(id))");
 
         } catch (Exception e) {
             e.printStackTrace();

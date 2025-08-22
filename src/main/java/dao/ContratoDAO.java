@@ -17,8 +17,8 @@ public class ContratoDAO {
             statement.setInt(1, contrato.getId_cliente());
             statement.setInt(2, contrato.getId_imovel());
             statement.setDouble(3, contrato.getValor());
-            statement.setString(4, contrato.getData_inicio());;
-            statement.setString(5, contrato.getData_fim());;
+            statement.setString(4, contrato.getData_inicio());
+            statement.setString(5, contrato.getData_fim());
             statement.setBoolean(6,contrato.isAtivo());
 
             statement.executeUpdate();
@@ -36,7 +36,7 @@ public class ContratoDAO {
 
             while (rs.next()) {
                 Contrato c = new Contrato();
-                c.setId(rs.getInt("id_contrato"));
+                c.setId(rs.getInt("id"));
                 c.setId_cliente(rs.getInt("id_cliente"));
                 c.setId_imovel(rs.getInt("id_imovel"));
                 c.setValor(rs.getDouble("valor"));
@@ -51,7 +51,6 @@ public class ContratoDAO {
         return contratos;
     }
 
-    // Relatório: contratos ativos
     public List<Contrato> listarAtivos() {
         List<Contrato> contratos = new ArrayList<>();
         String sql = "SELECT * FROM contratos WHERE ativo = 1";
@@ -62,7 +61,7 @@ public class ContratoDAO {
 
             while (rs.next()) {
                 Contrato c = new Contrato();
-                c.setId(rs.getInt("id_contrato"));
+                c.setId(rs.getInt("id"));
                 c.setId_cliente(rs.getInt("id_cliente"));
                 c.setId_imovel(rs.getInt("id_imovel"));
                 c.setValor(rs.getDouble("valor"));
@@ -103,7 +102,6 @@ public class ContratoDAO {
         return contratos;
     }
 
-    // Relatório: clientes com mais contratos
     public void clientesComMaisContratos() {
         String sql = "SELECT id_cliente, COUNT(*) as qtd FROM contratos GROUP BY id_cliente ORDER BY qtd DESC";
 
