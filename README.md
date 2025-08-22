@@ -6,6 +6,6 @@
 ## Documentação
 
 ### Como utilizar:
-1.Abrir a Classe DatabaseSetup
-2.Executar o "main" presente dentro dela.
-3.Você deverá receber uma mensagem de com o seguinte conteúdo ("Banco criado com sucesso!") 
+1. Abrir a Classe DatabaseSetup
+2. Executar o "main" presente dentro dela.
+3. Você deverá receber uma mensagem de com o seguinte conteúdo ("Banco criado com sucesso!") 
