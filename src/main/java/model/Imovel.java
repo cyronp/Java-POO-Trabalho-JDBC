@@ -66,7 +66,7 @@ public class Imovel {
         this.valor_aluguel = valor_aluguel;
     }
 
-        public boolean getDisponivel() {
+        public boolean isDisponivel() {
         return disponivel;
     }
 

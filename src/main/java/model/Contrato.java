@@ -42,7 +42,7 @@ public class Contrato {
         this.data_fim = data_fim;
     }
 
-    public Boolean getAtivo() {
+    public Boolean isAtivo() {
         return ativo;
     }
 

@@ -17,7 +17,7 @@ CREATE TABLE imoveis (
                          disponivel BOOLEAN DEFAULT 1
 );
 
-CREATE TABLE contratos (
+CREATE TABLE contratos(
                            id INTEGER PRIMARY KEY AUTOINCREMENT,
                            id_cliente INTEGER NOT NULL,
                            id_imovel INTEGER NOT NULL,
