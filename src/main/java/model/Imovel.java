@@ -62,7 +62,7 @@ public class Imovel {
         return valor_aluguel;
     }
 
-        public void setValor_aluguel(int valor_aluguel) {
+        public void setValor_aluguel(double valor_aluguel) {
         this.valor_aluguel = valor_aluguel;
     }
 
