@@ -19,7 +19,7 @@ public class Main {
         MenuManager menu = new MenuManager(sc, clienteDAO, imovelDAO, contratoDAO);
 
         try {
-            menu.iniciar(); // inicia o menu principal
+            menu.iniciar();
         } catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
             e.printStackTrace();

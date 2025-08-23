@@ -43,7 +43,6 @@ public class MenuManager {
         }
     }
 
-    // ================= MENU PRINCIPAL =================
     private void mostrarMenuPrincipal() throws SQLException {
         imprimirMenuPrincipal();
         String op = sc.nextLine();
@@ -81,7 +80,6 @@ public class MenuManager {
         System.out.print("Escolha: ");
     }
 
-    // ================= CLIENTES =================
     private void telaClientes() throws SQLException {
         imprimirMenuClientes();
         String op = sc.nextLine();
@@ -138,7 +136,6 @@ public class MenuManager {
         System.out.print("Escolha: ");
     }
 
-    // ================= IMÓVEIS =================
     private void telaImoveis() throws SQLException {
         imprimirMenuImoveis();
         String op = sc.nextLine();
@@ -202,7 +199,6 @@ public class MenuManager {
         System.out.print("Escolha: ");
     }
 
-    // ================= CONTRATOS =================
     private void telaContratos() throws SQLException {
         imprimirMenuContratos();
         String op = sc.nextLine();
@@ -264,7 +260,6 @@ public class MenuManager {
         System.out.print("Escolha: ");
     }
 
-    // ================= FUNÇÕES AUXILIARES =================
     private boolean processarComandoGlobal(String op) {
         if (op.equalsIgnoreCase("sair")) {
             telaAtual = "sair";
